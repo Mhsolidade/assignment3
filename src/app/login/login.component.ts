@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { FirebaseService } from './../service/firebase.service';
 
@@ -9,27 +10,47 @@ import { FirebaseService } from './../service/firebase.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public firebaseService: FirebaseService) {}
-  email: string;
-  password: string;
+  constructor(
+    public firebaseService: FirebaseService,
+    private router: Router
+  ) {}
+    user = {
+      email: '',
+      password: ''
+    };
 
   ngOnInit() {
   }
 
 
-
-  signup() {
-    this.firebaseService.signup(this.email, this.password);
-    this.email = this.password = '';
+   signInWithGoogle() {
+    this.firebaseService.signInWithGoogle()
+    .then((res) => {
+        this.router.navigate(['/home']);
+      })
+    .catch((err) => console.log(err));
+  }
+  signInWithFacebook() {
+    this.firebaseService.signInWithFacebook()
+    .then((res) => {
+        this.router.navigate(['/home']);
+      })
+    .catch((err) => console.log(err));
   }
 
-  login() {
-    this.firebaseService.login(this.email, this.password);
-    this.email = this.password = '';
+  signInWithEmail() {
+
+    this.firebaseService.signInRegular(this.user.email, this.user.password)
+      .then((res) => {
+        console.log(res);
+        this.router.navigate(['/home']);
+      })
+      .catch((err) => console.log('error: ' + err));
   }
 
   logout() {
     this.firebaseService.logout();
   }
+
 
 }

@@ -8,8 +8,14 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
-import { LoginModule } from './login/login.module';
 
+import { LoginModule } from './login/login.module';
+import { HomeModule } from './home/home.module';
+import { PerguntasModule } from './perguntas/perguntas.module';
+
+
+
+import { AuthGuard } from './guards/auth.guard';
 import { FirebaseService } from './service/firebase.service';
 
 export const firebaseConfig = {
@@ -29,12 +35,19 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    PerguntasModule,
+
     LoginModule,
+    HomeModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+
+    AppRoutingModule,
   ],
-  providers: [FirebaseService],
+  providers: [
+    FirebaseService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

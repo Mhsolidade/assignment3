@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-
-import { FirebaseService } from './../service/firebase.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+  constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
-  constructor(
-    private firebaseService: FirebaseService,
-    private router: Router
-  ) { }
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> | boolean {
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> {
 
-    if (this.firebaseService.isLogggedIn()) {
-      return true;
-    }
-
-    this.router.navigate(['/login']);
-    return false;
-
-  }
+      return this.afAuth.authState
+       .take(1)
+       .map(user => !!user)
+       .do(loggedIn => {
+         if (!loggedIn) {
+           console.log('access denied');
+           this.router.navigate(['/login']);
+         }
+     });
+   }
 
 }
