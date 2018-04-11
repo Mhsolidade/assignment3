@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 
 import { AppComponent } from './app.component';
 
@@ -46,6 +49,8 @@ export const firebaseConfig = {
   ],
   providers: [
     FirebaseService,
+    AngularFirestore,
+    AngularFireDatabase,
     AuthGuard
   ],
   bootstrap: [AppComponent]
