@@ -1,31 +1,41 @@
-<div>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <div *ngFor="let item of questoes | async">
-      <img src="{{item.img}}" alt="">
-      <h2 type="text" #updatetext>{{item.titulo}}</h2>
-      <!-- <div class="form-group" [ngClass]="aplicaCssErro(a)" > -->
-      <div class="form-group">
-        <div class="form-control">
-          <label class="radio-inline">
-            <input type="radio" name="{{item.questao}}" value="a" required="true" [(ngModel)]="item.questao"> {{item.a}}
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="{{item.questao}}" value="b" required="true" [(ngModel)]="item.questao"> {{item.b}}
-          </label>
+<div class="bg-fundo">
+  <div class="container">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div *ngFor="let item of questoes | async">
+        <div  class="row mb-2">
 
-          <label class="radio-inline">
-            <input type="radio" name="{{item.questao}}" value="c" required="true" [(ngModel)]="item.questao"> {{item.c}}
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="{{item.questao}}" value="d" required="true" [(ngModel)]="item.questao"> {{item.d}}
-          </label>
 
+          <div class="col-md-6  ">
+            <img src="{{item.img}}" alt="">
+
+          </div>
+          <!-- <div class="form-group" [ngClass]="aplicaCssErro(a)" > -->
+            <div class="form-group">
+                <h2 type="text" #updatetext>{{item.titulo}}</h2>
+            <div class="form-control">
+              <label class="radio-inline">
+                <input type="radio" name="{{item.questao}}" value="a" required="true" [(ngModel)]="item.questao"> {{item.a}}
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="{{item.questao}}" value="b" required="true" [(ngModel)]="item.questao"> {{item.b}}
+              </label>
+
+              <label class="radio-inline">
+                <input type="radio" name="{{item.questao}}" value="c" required="true" [(ngModel)]="item.questao"> {{item.c}}
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="{{item.questao}}" value="d" required="true" [(ngModel)]="item.questao"> {{item.d}}
+              </label>
+
+            </div>
+          </div>
         </div>
-      </div>
+        </div>
+
+
+      <!-- </div> -->
+      <button type="submit" class="center btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </form>
     </div>
 
-
-    <!-- </div> -->
-    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
-  </form>
 </div>

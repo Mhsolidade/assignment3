@@ -37,6 +37,8 @@ export class PerguntasComponent implements OnInit {
     console.log(form.value);
     const resposta = this.gabaritoService.verificaGabarito(form.value);
     this.gabaritoService.addItem(resposta);
+
+    alert(`Parabens seu nivel é ${resposta}`);
     }
 
 
