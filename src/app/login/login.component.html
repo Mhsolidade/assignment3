@@ -1,23 +1,57 @@
 <h1 *ngIf="firebaseService.user | async">Welcome {{ (firebaseService.user | async)?.email }}!</h1>
 
+<div class="col-sm-6 col-sm-6 section_left text-center">
+  <img src="../assets/img/Layout_Logo.png" id="logo" alt="">
+  <div>
+    <p>LOGIN</p>
+  </div>
+  
+    <div>
+      <input type="text" [(ngModel)]="user.email" placeholder="Email">
+    </div>
+    
+    <div>
+      <input type="password" [(ngModel)]="user.password" placeholder="Senha">
+    </div>
 
-  <input type="text" [(ngModel)]="user.email" placeholder="email">
-  <input type="password" [(ngModel)]="user.password" placeholder="senha">
+  <div>
+    <button type="button" class="btn btn-info entrar" (click)="signInWithEmail()" [disabled]="!user.email || !user.password">
+      Entrar
+    </button>
+  </div>
+  <span>Esqueceu a senha?</span>
+  
+  <div>
+    <button (click)="logout()" *ngIf="firebaseService.user | async">
+      Logout
+    </button>
+  </div>
+  
+  <div>
+    <button type="buton" class="btn btn-primary btn-facebook" (click)="signInWithFacebook()">
+      <i class="fab fa-facebook-f"></i> Login Facebook
+    </button>
+  </div>
+  
+  <div>
+    <button type="button" class="btn btn-danger btn-google" (click)="signInWithGoogle()">
+      <i class="fab fa-google"></i> Login Gmail
+    </button>
+  </div>
 
-  <button (click)="signInWithEmail()" [disabled]="!user.email || !user.password">
-    Login
-  </button>
+  <div id="register">
+    <a href="">Cadrastre-se</a>
+  </div>
+</div>
 
-
-<button (click)="logout()" *ngIf="firebaseService.user | async">
-  Logout
-</button>
-
-<button type="button" class="btn btn-block" (click)="signInWithGoogle()">
-  Login with Google
-</button>
-
-<button type="buton" class="btn btn-block" (click)="signInWithFacebook()">
-  <i class="fa fa-facebook" aria-hidden="true"></i>
-  Login with Facebook
-</button>
+<div class="col-sm-6 col-md-6 section_right">
+  <div class="text-center">
+    <img src="../assets/img/Layout_Garota.png" alt="">
+  </div>
+  <div class="text-center">
+    <img src="../assets/img/Layout_BARRA.png" alt="">
+  </div>
+  <h2 class="text-center">
+    Descubra qual seu nível de conhecimento!
+  </h2>
+</div>
