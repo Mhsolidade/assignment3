@@ -1,0 +1,28 @@
+.bg{
+height: 100vh;
+z-index: -999999;
+background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/Layout_BG.png?alt=media&token=2cb3df9f-19e2-4c21-a392-1bd536805c82);
+
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 2fr;
+grid-template-rows: 0.5fr 1fr 0.2fr 1fr 1fr;
+
+}
+.logo{
+  background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/Layout_Logo02.png?alt=media&token=d7b809f9-812f-4854-abf8-921e7d4fbd8c);
+  grid-column: 2/4;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.teste{
+  z-index: 9999;
+}
+
+.btn-primary {
+  grid-column: 2/4;
+  grid-row: 3;
+  color: #fcac56;
+  background-color: #fceb56;
+  border-color: #fceb56;
+}
