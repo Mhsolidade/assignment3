@@ -66,3 +66,12 @@ h2{
     font-family: 'Fira Sans', sans-serif !important;
     font-weight: bold !important;
 }
+
+
+@media (max-width: 600px) 
+{
+  .section_right 
+   {
+    display: none;
+   }
+}
