@@ -1,0 +1,68 @@
+.section_left{
+    background-color: #fff;
+    min-height: 100%;
+    position: fixed;
+}
+
+.section_right {
+    background-image: url("/assets/img/Layout_BGLOGIN.png");
+    position: fixed;
+    min-height: 100%;
+    margin-left: 50%;
+}
+
+p{
+    color:#7f7f7f;
+}
+
+#logo{
+    padding: 50px;
+}
+
+input{
+    margin: 10px;
+    width: 60%;
+    text-align: center;
+}
+
+.entrar{
+    color:#fff;
+    margin: 10px;
+    width: 30%;
+    text-transform: uppercase;
+}
+
+span{
+    color:#7f7f7f;
+    font-size: 10px;
+}
+.login{
+    width: 60%;
+    margin: 20px;
+}
+
+.btn-facebook{
+    margin: 10px;
+    width: 55%;
+    height: 38px;
+}
+
+.btn-google{
+    margin: 10px;
+    width: 55%;
+    height: 38px;
+}
+
+a{
+    color: #7f7f7f;
+    pointer-events: none;
+    padding: 18px 22px 6px 22px;
+    border-bottom: 1px solid #7f7f7f;
+    font-size: 15px;
+}
+
+h2{
+    color: #fff;
+    font-family: 'Fira Sans', sans-serif !important;
+    font-weight: bold !important;
+}
