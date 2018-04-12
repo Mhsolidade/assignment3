@@ -1,15 +1,15 @@
-<h1 *ngIf="firebaseService.user | async">Welcome {{ (firebaseService.user | async)?.email }}!</h1>
+<!-- <h1 *ngIf="firebaseService.user | async">Welcome {{ (firebaseService.user | async)?.email }}!</h1> -->
 
 <div class="col-sm-6 col-sm-6 section_left text-center">
   <img src="../assets/img/Layout_Logo.png" id="logo" alt="">
   <div>
     <p>LOGIN</p>
   </div>
-  
+
     <div>
       <input type="text" [(ngModel)]="user.email" placeholder="Email">
     </div>
-    
+
     <div>
       <input type="password" [(ngModel)]="user.password" placeholder="Senha">
     </div>
@@ -20,19 +20,19 @@
     </button>
   </div>
   <span>Esqueceu a senha?</span>
-  
+
   <div>
     <button (click)="logout()" *ngIf="firebaseService.user | async">
       Logout
     </button>
   </div>
-  
+
   <div>
     <button type="buton" class="btn btn-primary btn-facebook" (click)="signInWithFacebook()">
       <i class="fab fa-facebook-f"></i> Login Facebook
     </button>
   </div>
-  
+
   <div>
     <button type="button" class="btn btn-danger btn-google" (click)="signInWithGoogle()">
       <i class="fab fa-google"></i> Login Gmail
