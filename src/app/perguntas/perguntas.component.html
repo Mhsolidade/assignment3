@@ -1,7 +1,7 @@
 <div class="bg-fundo">
   <div class="container">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div *ngFor="let item of questoes | async">
+      <div *ngFor="let item of perguntas">
         <div  class="row mb-2">
 
 
@@ -9,22 +9,21 @@
             <img src="{{item.img}}" alt="">
 
           </div>
-          <!-- <div class="form-group" [ngClass]="aplicaCssErro(a)" > -->
             <div class="form-group">
                 <h2 type="text" #updatetext>{{item.titulo}}</h2>
             <div class="form-control">
               <label class="">
-                <input type="radio" name="{{item.questao}}" value="a" required="true" [(ngModel)]="item.questao"> {{item.a}}
+                <input type="radio" name="{{item.questao}}" value="a" required="true" ngModel> {{item.a}}
               </label>
               <label class="">
-                <input type="radio" name="{{item.questao}}" value="b" required="true" [(ngModel)]="item.questao"> {{item.b}}
+                <input type="radio" name="{{item.questao}}" value="b" required="true" ngModel> {{item.b}}
               </label>
 
               <label class="">
-                <input type="radio" name="{{item.questao}}" value="c" required="true" [(ngModel)]="item.questao"> {{item.c}}
+                <input type="radio" name="{{item.questao}}" value="c" required="true" ngModel> {{item.c}}
               </label>
               <label class="">
-                <input type="radio" name="{{item.questao}}" value="d" required="true" [(ngModel)]="item.questao"> {{item.d}}
+                <input type="radio" name="{{item.questao}}" value="d" required="true" ngModel> {{item.d}}
               </label>
 
             </div>
@@ -32,10 +31,20 @@
         </div>
         </div>
 
+      <div *ngIf="nextKey" >
+        <button type="submit" class="center btn btn-primary" (click)="nextPage()"  [disabled]="!f.valid">Submit</button>
 
-      <!-- </div> -->
-      <button type="submit" class="center btn btn-primary" [disabled]="!f.valid">Submit</button>
+      </div>
+      template
     </form>
     </div>
 
 </div>
+<!-- <div *ngFor="let item of perguntas; index as i">
+
+  <h1>{{ item.titulo | json }}</h1>
+
+</div> -->
+
+<button (click)="prevPage()" [disabled]="!prevKeys?.length">Anterior</button>
+<button (click)="nextPage()" [disabled]="!nextKey">Proxima</button>

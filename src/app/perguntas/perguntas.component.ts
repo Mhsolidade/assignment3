@@ -1,7 +1,11 @@
-import { GabaritoService } from './../service/gabarito.service';
+// import { GabaritoService } from './../service/gabarito.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { PerguntasService } from '.././service/perguntas.service';
+import * as _ from 'lodash';
+
 
 
 @Component({
@@ -10,24 +14,39 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./perguntas.component.css']
 })
 export class PerguntasComponent implements OnInit {
-  questoesRef: AngularFireList<any>;
-  questoes: Observable<any[]>;
+  perguntas: any;
+  offset = 1;
+  nextKey: any; // for next button
+  prevKeys: any[] = []; // for prev button
+  subscription: any;
 
-  gabaritoRef: AngularFireList<any>;
-  gabarito: Observable<any>;
+  constructor(private perguntasSvc: PerguntasService) { }
 
-  constructor(public db: AngularFireDatabase, private gabaritoService: GabaritoService) {
-    this.questoesRef = db.list('questionario');
-    // Use snapshotChanges().map() to store the key
-    this.questoes = this.questoesRef.snapshotChanges().map(changes => {
-      return changes.map(c => ( { key: c.payload.key, ...c.payload.val() }));
-    });
-  }
+
   ngOnInit() {
-    this.gabaritoRef = this.db.list('questionario');
-    // Use snapshotChanges().map() to store the key
-    this.gabarito = this.questoesRef.snapshotChanges().map(changes => {
-      return changes.map(c => ( { key: c.payload.key, ...c.payload.val() }));
+    this.getPerguntas();
+  }
+
+  nextPage() {
+    this.prevKeys.push(_.first(this.perguntas)['$key']); // set current key as pointer for previous page
+    this.getPerguntas(this.nextKey);
+  }
+
+  prevPage() {
+    const prevKey = _.last(this.prevKeys); // use last key in array
+    this.prevKeys = _.dropRight(this.prevKeys); // then remove the last key in the array
+
+    this.getPerguntas(prevKey);
+  }
+
+  private getPerguntas(key?) {
+
+    this.subscription = this.perguntasSvc.getPerguntas(this.offset, key)
+                       .subscribe(perguntas => {
+
+                          this.perguntas = _.slice(perguntas, 0, this.offset);
+                          this.nextKey = _.get(perguntas[this.offset],'key');
+                          console.log(perguntas[this.offset].key);
     });
   }
 
@@ -35,23 +54,10 @@ export class PerguntasComponent implements OnInit {
   onSubmit(form) {
   // alert('form');
     console.log(form.value);
-    const resposta = this.gabaritoService.verificaGabarito(form.value);
-    this.gabaritoService.addItem(resposta);
+    // const resposta = this.gabaritoService.verificaGabarito(form.value);
+    // this.gabaritoService.addItem(resposta);
 
-    alert(`Parabens seu nivel é ${resposta}`);
+    // alert(`Parabens seu nivel é ${resposta}`);
     }
-
-
-
-  verificaValidTouched(campo) {
-    return !campo.valid && campo.touched;
-  }
-
-  aplicaCssErro(campo) {
-    return {
-      'has-error': this.verificaValidTouched(campo),
-      'has-feedback': this.verificaValidTouched(campo)
-    };
-  }
 
 }

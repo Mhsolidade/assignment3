@@ -21,6 +21,7 @@ import { PerguntasModule } from './perguntas/perguntas.module';
 import { AuthGuard } from './guards/auth.guard';
 import { FirebaseService } from './service/firebase.service';
 import { GabaritoService } from './service/gabarito.service';
+import { PerguntasService } from './service/perguntas.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDKbpyqpSkFgqgHfJF5J7vVuI8kWhYvevY',
@@ -53,7 +54,8 @@ export const firebaseConfig = {
     AngularFirestore,
     AngularFireDatabase,
     AuthGuard,
-    GabaritoService
+    GabaritoService,
+    PerguntasService
   ],
   bootstrap: [AppComponent]
 })
