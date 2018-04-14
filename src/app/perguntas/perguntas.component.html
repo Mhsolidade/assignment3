@@ -34,34 +34,34 @@
         <div class="card flex-md-row mb-6 box-shadow h-md-250 ">
 
           <div class="pergunta-img" [ngStyle]="{'background-image':'url('+item.img+')'}"></div>
-            
-                
+
+
               <div class="card-body  d-lg-block">
                   <div class="">
                       <strong class="d-inline-block mb-2 text-primary"></strong>
                       <p class="mb-1">{{item.titulo}}</p>
                     </div>
-                <div class="btn-group-vertical btn-block btn-group-toggle " data-toggle="buttons">
+                <div class="btn-group-vertical  btn-group-toggle " data-toggle="buttons">
                   <label class="btn btn-light btn-pergunta">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> {{ item.a }}
+                    <input type="radio" name="options" id="option1" > {{ item.a }}
                   </label>
                   <label class="btn btn-light btn-pergunta">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> {{ item.b }}
+                    <input type="radio" name="options" id="option2" > {{ item.b }}
                   </label>
                   <label class="btn btn-light btn-pergunta">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> {{ item.c }}
+                    <input type="radio" name="options" id="option3" > {{ item.c }}
                   </label>
                   <label class="btn btn-light btn-pergunta">
-                      <input type="radio" name="options" id="option3" autocomplete="off"> {{ item.d }}
+                      <input type="radio" name="options" id="option3" > {{ item.d }}
                     </label>
                 </div>
-                
+
               </div>
 
 
 
-            
-        
+
+
         </div>
 
 
@@ -73,7 +73,10 @@
 
       </div>
       <ng-template #proximo>
-        <button class="center btn btn-primary" (click)="enviaForm()" [disabled]="!f.valid">envia</button>
+        <div  class="d-flex justify-content-center mt-3">
+          <button class="center btn btn-primary" (click)="enviaForm()" [disabled]="!f.valid">envia</button>
+
+        </div>
       </ng-template>
     </form>
   </div>

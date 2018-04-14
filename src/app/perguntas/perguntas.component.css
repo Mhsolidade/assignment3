@@ -7,9 +7,9 @@
   width: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  position: right;
+  position: right center;
 }
 
-.btn-pergunta:active{
+.btn-pergunta.active {
   background-color: #4db2fd;
 }

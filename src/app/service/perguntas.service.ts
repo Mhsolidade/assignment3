@@ -12,7 +12,7 @@ export class PerguntasService {
   getPerguntas(offset, startKey: string): Observable<AngularFireAction<firebase.database.DataSnapshot>[]> {
     let key = [startKey];
 
-    if(typeof (startKey) == 'undefined'){
+    if (typeof (startKey) == 'undefined') {
       key[0] = 'q1';
 
     }
