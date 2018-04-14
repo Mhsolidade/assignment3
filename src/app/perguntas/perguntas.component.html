@@ -2,11 +2,12 @@
   <div class="container">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div *ngFor="let item of perguntas">
-        <div  class="row mb-2">
+         
+        <!-- <div  class="row mb-2">
 
 
           <div class="col-md-6  ">
-            <!-- <img src="{{item.img}}" alt=""> -->
+            <img src="{{item.img}}" alt="">
 
           </div>
             <div class="form-group">
@@ -28,8 +29,16 @@
 
             </div>
           </div>
-        </div>
-        </div>
+        </div> -->
+
+        <div class="card flex-md-row mb-6 box-shadow h-md-250 " [ngStyle]="{'background-image':'url('+item.img+')'}">
+          <div 
+          class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]"  >
+            
+
+          </div>
+
+         
 
       <div *ngIf="nextKey; else proximo" >
         <button type="submit" class="center btn btn-primary" (click)="nextPage()"  [disabled]="!f.valid">Submit</button>
