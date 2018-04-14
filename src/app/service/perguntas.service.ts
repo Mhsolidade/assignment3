@@ -16,7 +16,7 @@ export class PerguntasService {
       key[0] = 'q1';
 
     }
-    console.log(startKey);
+    // console.log(startKey);
     this.groups = this.db.list(`questionario`, ref =>
           ref.orderByKey().startAt(key[0]).limitToFirst(offset + 1)).snapshotChanges().map(changes => {
             return  changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));

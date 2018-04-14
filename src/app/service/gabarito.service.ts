@@ -9,71 +9,76 @@ import { Injectable } from '@angular/core';
 export class GabaritoService {
   itemsRef: AngularFireList<any>;
   userId: string;
+  nameUser;
 
   // constructor(db: AngularFireDatabase) {
+    respostas;
     constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
       this.afAuth.authState.subscribe(user => {
         if (user) {
           this.userId = user.uid;
-          this.itemsRef = db.list(`pontuacao/${this.userId}`);
+          this.nameUser = user.displayName;
+          this.itemsRef = db.list(`pontuacao`);
         }
     });
+    this.respostas = 0;
   }
 
 
 
-  verificaGabarito(values) {
-  let respostas = 0;
+  verificaGabarito(values, questao) {
+  //  s
    if (values['q1'] == 'd') {
 
-     respostas = respostas + 2;
+     this.respostas = this.respostas + 2;
    }
    if (values['q2'] == 'b') {
-     respostas = respostas + 1;
+     this.respostas = this.respostas + 1;
    }
    if (values['q3'] == 'd') {
-     respostas = respostas + 1;
+     this.respostas = this.respostas + 1;
    }
    if (values['q4'] == 'b') {
-     respostas = respostas + 1;
+     this.respostas = this.respostas + 1;
    }
    if (values['q5'] == 'd') {
-     respostas = respostas + 3;
+     this.respostas = this.respostas + 3;
    }
    if (values['q6'] == 'd') {
-     respostas = respostas + 2;
+     this.respostas = this.respostas + 2;
    }
    if (values['q7'] == 'a') {
-     respostas = respostas + 2;
+     this.respostas = this.respostas + 2;
    }
    if (values['q8'] == 'c') {
-     respostas = respostas + 1;
+     this.respostas = this.respostas + 1;
    }
    if (values['q9'] == 'c') {
-     respostas = respostas + 3;
+     this.respostas = this.respostas + 3;
    }
    if (values['q10'] == 'b') {
-     respostas = respostas + 3;
+     this.respostas = this.respostas + 3;
    }
-   return this.proficiencia(respostas);
+   console.log(this.respostas);
+   return true;
   }
 
-  proficiencia(pontuacao) {
-    if (pontuacao <= 0) {
+  proficiencia() {
+    if ( this.respostas <= 0) {
       return 'Melhor mudar de área';
     }
-    if (pontuacao >= 1 && pontuacao <= 7) {
+    if ( this.respostas >= 1 &&  this.respostas <= 7) {
       return 'junior';
     }
-    if (pontuacao >= 8 && pontuacao <= 15) {
+    if ( this.respostas >= 8 &&  this.respostas <= 15) {
       return 'Pleno';
     }
-    if (pontuacao >= 16 && pontuacao <= 19) {
+    if ( this.respostas >= 16 &&  this.respostas <= 19) {
       return 'Sênior';
     }
   }
   addItem(newName: string) {
-    this.itemsRef.push({ pontuacao: newName });
+    this.itemsRef.push([{ pontuacao: newName },{ userId: this.userId}, { nomeUsuario: this.nameUser}]);
   }
 
 }

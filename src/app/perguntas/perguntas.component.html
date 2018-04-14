@@ -6,24 +6,24 @@
 
 
           <div class="col-md-6  ">
-            <img src="{{item.img}}" alt="">
+            <!-- <img src="{{item.img}}" alt=""> -->
 
           </div>
             <div class="form-group">
                 <h2 type="text" #updatetext>{{item.titulo}}</h2>
             <div class="form-control">
               <label class="">
-                <input type="radio" name="{{item.questao}}" value="a" required="true" ngModel> {{item.a}}
+                <input type="radio" name="{{item.questao}}" value="a" required="true" [ngModel]> {{ item.a }}
               </label>
               <label class="">
-                <input type="radio" name="{{item.questao}}" value="b" required="true" ngModel> {{item.b}}
+                <input type="radio" name="{{item.questao}}" value="b" required="true" ngModel> {{ item.b }}
               </label>
 
               <label class="">
-                <input type="radio" name="{{item.questao}}" value="c" required="true" ngModel> {{item.c}}
+                <input type="radio" name="{{item.questao}}" value="c" required="true" ngModel> {{ item.c }}
               </label>
               <label class="">
-                <input type="radio" name="{{item.questao}}" value="d" required="true" ngModel> {{item.d}}
+                <input type="radio" name="{{item.questao}}" value="d" required="true" ngModel> {{ item.d }}
               </label>
 
             </div>
@@ -31,11 +31,13 @@
         </div>
         </div>
 
-      <div *ngIf="nextKey" >
+      <div *ngIf="nextKey; else proximo" >
         <button type="submit" class="center btn btn-primary" (click)="nextPage()"  [disabled]="!f.valid">Submit</button>
 
       </div>
-      template
+      <ng-template #proximo>
+          <button class="center btn btn-primary" (click)="enviaForm()"  [disabled]="!f.valid">envia</button>
+      </ng-template>
     </form>
     </div>
 
@@ -45,6 +47,6 @@
   <h1>{{ item.titulo | json }}</h1>
 
 </div> -->
-
+<!--
 <button (click)="prevPage()" [disabled]="!prevKeys?.length">Anterior</button>
-<button (click)="nextPage()" [disabled]="!nextKey">Proxima</button>
+<button (click)="nextPage()" [disabled]="!nextKey">Proxima</button> -->

@@ -1,12 +1,18 @@
-// import { GabaritoService } from './../service/gabarito.service';
 import { Component, OnInit } from '@angular/core';
+
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
-import { PerguntasService } from '.././service/perguntas.service';
+
+import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 
+import { PerguntasService } from '.././service/perguntas.service';
+import { GabaritoService } from './../service/gabarito.service';
 
+export class Respostas {
+  key: string;
+  resposta: string;
+}
 
 @Component({
   selector: 'app-perguntas',
@@ -20,7 +26,10 @@ export class PerguntasComponent implements OnInit {
   prevKeys: any[] = []; // for prev button
   subscription: any;
 
-  constructor(private perguntasSvc: PerguntasService) { }
+
+  respostas: any = [];
+  resp;
+  constructor(private perguntasSvc: PerguntasService, private gabaritoService: GabaritoService ) {   }
 
 
   ngOnInit() {
@@ -30,6 +39,7 @@ export class PerguntasComponent implements OnInit {
   nextPage() {
     this.prevKeys.push(_.first(this.perguntas)['$key']); // set current key as pointer for previous page
     this.getPerguntas(this.nextKey);
+
   }
 
   prevPage() {
@@ -45,19 +55,41 @@ export class PerguntasComponent implements OnInit {
                        .subscribe(perguntas => {
 
                           this.perguntas = _.slice(perguntas, 0, this.offset);
-                          this.nextKey = _.get(perguntas[this.offset],'key');
-                          console.log(perguntas[this.offset].key);
+                          this.nextKey = _.get(perguntas[this.offset], 'key');
+                          // console.log(perguntas[this.offset].key);
     });
   }
 
 
+  // onSubmit(form) {
+  //   this.respostas.push(form.value);
+  //   // console.log(this.respostas);
+  //   // this.resp {} = this.respostas;
+  //   this.gabaritoService.verificaGabarito()
+  //   console.log(form.value);
+  // }
+
+  // enviaForm() {
+  //   this.gabaritoService.verificaGabarito(this.respostas);
+  // }
+
+
   onSubmit(form) {
-  // alert('form');
-    console.log(form.value);
-    // const resposta = this.gabaritoService.verificaGabarito(form.value);
-    // this.gabaritoService.addItem(resposta);
+    // this.respostas.push(form.value);
+    let resp = form.value;
+    // let questao = this.perguntas.questao;
+    // console.log(resp['q1']);
+    // console.log(questao);
 
-    // alert(`Parabens seu nivel é ${resposta}`);
-    }
+    this.gabaritoService.verificaGabarito(resp, resp[0]);
 
+
+  }
+
+
+enviaForm() {
+  const respo = this.gabaritoService.proficiencia();
+  this.gabaritoService.addItem(respo);
+  alert(`Parabens seu nivel é ${respo}`);
+  }
 }
