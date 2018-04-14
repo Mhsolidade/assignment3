@@ -6,17 +6,22 @@ background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.ap
 display: grid;
 grid-template-columns: 2fr 1fr 1fr 2fr;
 grid-template-rows: 0.5fr 1fr 0.2fr 1fr 1fr;
+background-repeat: no-repeat;
+background-size: cover;
 
 }
 .logo{
-  background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/Layout_Logo02.png?alt=media&token=d7b809f9-812f-4854-abf8-921e7d4fbd8c);
+  /* background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/Layout_Logo02.png?alt=media&token=d7b809f9-812f-4854-abf8-921e7d4fbd8c); */
   grid-column: 2/4;
-  background-size: cover;
-  background-repeat: no-repeat;
+  margin: 0 auto;
+  padding-top: 60px;
+
 }
 
-.teste{
-  z-index: 9999;
+.texto{
+  grid-column: 1/5;
+  margin: 20px auto;
+
 }
 
 .btn-primary {
@@ -25,4 +30,5 @@ grid-template-rows: 0.5fr 1fr 0.2fr 1fr 1fr;
   color: #fcac56;
   background-color: #fceb56;
   border-color: #fceb56;
+  font-size: 20px;
 }
