@@ -2,6 +2,14 @@
   background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/bg02.png?alt=media&token=1da68cbc-3634-4402-9ed3-d1c9e5f682b6);
   height: 100vh;
 }
-.Teste{
-  height: 300px;
+.pergunta-img{
+  /* height: 300px; */
+  width: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: right;
+}
+
+.btn-pergunta:active{
+  background-color: #4db2fd;
 }
