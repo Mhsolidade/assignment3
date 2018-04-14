@@ -9,6 +9,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireDatabase } from 'angularfire2/database';
 
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 
@@ -41,7 +42,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     PerguntasModule,
-
+    // NgbModule.forRoot(),
     LoginModule,
     HomeModule,
     AngularFireModule.initializeApp(firebaseConfig),

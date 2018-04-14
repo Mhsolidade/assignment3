@@ -92,5 +92,6 @@ enviaForm() {
   const respo = this.gabaritoService.proficiencia();
   this.gabaritoService.addItem(respo);
   alert(`Parabens seu nivel é ${respo}`);
+  // $('#myModal').modal('show');
   }
 }
