@@ -6,7 +6,7 @@
     </div>
 
       <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-        <div *ngFor="let item of perguntas; index as i">
+        <div *ngFor="let item of perguntas; let i = index">
 
           <div class="grid-form card">
 
@@ -14,7 +14,7 @@
               <img src="{{ item.img }}" class="pergunta-img" alt="">
               <div class="pergunta-quest">
                  <h1>
-                    <strong class="d-inline-block mb-2 text-primary mx-3">{{ i + 1 }}</strong>
+                    <!-- <strong class="d-inline-block mb-2 text-primary mx-3">{{ i+1 }}</strong> -->
                  </h1>
                 <h3 class="p-4">{{item.titulo}}</h3>
 
