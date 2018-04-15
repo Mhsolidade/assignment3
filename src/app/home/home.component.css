@@ -15,23 +15,28 @@ background-size: cover;
   grid-column: 2/4;
   margin: 0 auto;
   padding-top: 60px;
-
+  color: white;
 }
 
 .texto{
-  grid-column: 2/4;
-  margin: 20px auto;
+  grid-column: 1/5;
   font-weight: bold;
-
+  color:white;
+  text-align: center;
+  padding: 6rem;
 }
 
 .btn-primary {
-  grid-column: 2/4;
-  grid-row: 3;
   color: #fcac56;
   background-color: #fceb56;
   border-color: #fceb56;
   font-size: 20px;
+}
+.btn-home{
+  grid-column: 2/4;
+  grid-row: 3;
+  font-size: 20px;
+  text-align: center;
 }
 
 @media screen and (max-width: 600px){
