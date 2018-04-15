@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 
 import { PerguntasService } from '.././service/perguntas.service';
 import { GabaritoService } from './../service/gabarito.service';
+import * as $ from 'jquery';
 
 export class Respostas {
   key: string;
@@ -35,6 +36,7 @@ export class PerguntasComponent implements OnInit {
 
   ngOnInit() {
     this.getPerguntas();
+
   }
 
   nextPage() {

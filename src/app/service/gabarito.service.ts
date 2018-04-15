@@ -18,7 +18,7 @@ export class GabaritoService {
         if (user) {
           this.userId = user.uid;
           this.nameUser = user.displayName;
-          this.itemsRef = db.list(`pontuacao`);
+          this.itemsRef = db.list(`pontuacao/${this.userId}`);
         }
     });
     this.respostas = 0;

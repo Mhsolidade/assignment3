@@ -1,7 +1,71 @@
 <div class="bg-fundo">
   <div class="container">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div *ngFor="let item of perguntas">
+    <div class="d-flex justify-content-center">
+      <img src="../assets/img/Layout_Logo.png" id="logo" alt="">
+
+    </div>
+
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div *ngFor="let item of perguntas; index as i">
+
+          <div class="grid-form card">
+
+              <!-- <div class="pergunta-img" [ngStyle]="{'background-image':'url('+item.img+')'}"></div> -->
+              <img src="{{ item.img }}" class="pergunta-img" alt="">
+              <div class="pergunta-quest">
+                 <h1>
+                    <strong class="d-inline-block mb-2 text-primary mx-3">{{ i + 1 }}</strong>
+                 </h1>
+                <h3 class="p-4">{{item.titulo}}</h3>
+
+                <div class="d-flex btn-group-vertical btn-block ">
+                    <label class="btn btn-light btn-pergunta border my-1  ">
+                        <input type="radio" name="{{item.questao}}" value="a" required="true" [ngModel]> {{ item.a }}
+                      </label>
+                      <label class="btn btn-light btn-pergunta border my-1  ">
+                        <input type="radio" name="{{item.questao}}" value="b" required="true" ngModel> {{ item.b }}
+                      </label>
+
+                      <label class="btn btn-light btn-pergunta border my-1  ">
+                        <input type="radio" name="{{item.questao}}" value="c" required="true" ngModel> {{ item.c }}
+                      </label>
+                      <label class="btn btn-light btn-pergunta border my-1  ">
+                        <input type="radio" name="{{item.questao}}" value="d" required="true" ngModel> {{ item.d }}
+                      </label>
+
+
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                <div *ngIf="nextKey; else proximo" >
+                    <button type="submit" class="btn btn-primary" (click)="nextPage()" [disabled]="!f.valid">próximo</button>
+                  </div>
+
+                  <ng-template #proximo>
+                      <!-- <button type="submit" class="btn btn-primary" (click)="nextPage()" [disabled]="!f.valid">S</button> -->
+
+                      <button class="btn btn-primary" (click)="enviaForm()" [disabled]="!f.valid">Finalizar!</button>
+                    </ng-template>
+                  </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+</div>
+<!-- <div *ngFor="let item of perguntas; index as i">
+
+  <h1>{{ item.titulo | json }}</h1>
+
+</div> -->
+<!--
+<button (click)="prevPage()" [disabled]="!prevKeys?.length">Anterior</button>
+<button (click)="nextPage()" [disabled]="!nextKey">Proxima</button> -->
+
 
         <!-- <div  class="row mb-2">
 
@@ -31,62 +95,16 @@
           </div>
         </div> -->
 
-        <div class="card flex-md-row mb-6 box-shadow h-md-250 ">
 
-          <div class="pergunta-img" [ngStyle]="{'background-image':'url('+item.img+')'}"></div>
-
-
-              <div class="card-body  d-lg-block">
-                  <div class="">
-                      <strong class="d-inline-block mb-2 text-primary"></strong>
-                      <p class="mb-1">{{item.titulo}}</p>
-                    </div>
-                <div class="btn-group-vertical  btn-group-toggle " data-toggle="buttons">
-                  <label class="btn btn-light btn-pergunta">
-                    <input type="radio" name="options" id="option1" > {{ item.a }}
-                  </label>
-                  <label class="btn btn-light btn-pergunta">
-                    <input type="radio" name="options" id="option2" > {{ item.b }}
-                  </label>
-                  <label class="btn btn-light btn-pergunta">
-                    <input type="radio" name="options" id="option3" > {{ item.c }}
-                  </label>
-                  <label class="btn btn-light btn-pergunta">
-                      <input type="radio" name="options" id="option3" > {{ item.d }}
-                    </label>
-                </div>
-
-              </div>
-
-
-
-
-
-        </div>
-
-
-
-      </div>
-
-      <div *ngIf="nextKey; else proximo" class="d-flex justify-content-center mt-3" >
-        <button type="submit" class="btn btn-primary" (click)="nextPage()" [disabled]="!f.valid">Submit</button>
-
-      </div>
-      <ng-template #proximo>
-        <div  class="d-flex justify-content-center mt-3">
-          <button class="center btn btn-primary" (click)="enviaForm()" [disabled]="!f.valid">envia</button>
-
-        </div>
-      </ng-template>
-    </form>
-  </div>
-
-</div>
-<!-- <div *ngFor="let item of perguntas; index as i">
-
-  <h1>{{ item.titulo | json }}</h1>
-
-</div> -->
-<!--
-<button (click)="prevPage()" [disabled]="!prevKeys?.length">Anterior</button>
-<button (click)="nextPage()" [disabled]="!nextKey">Proxima</button> -->
+        <!-- <label class="btn btn-light btn-pergunta border my-1">
+            <input type="radio" name="{{item.questao}}" value="a" required="true" [ngModel]> {{ item.a }}
+            </label>
+            <label class="btn btn-light btn-pergunta border my-1  ">
+              <input type="radio" name="{{item.questao}}" value="b" required="true" [ngModel]> {{ item.b }}
+            </label>
+            <label class="btn btn-light btn-pergunta border my-1 ">
+              <input type="radio" name="{{item.questao}}" value="c" required="true" [ngModel]> {{ item.c }}
+            </label>
+            <label class="btn btn-light btn-pergunta border my-1">
+              <input type="radio" name="{{item.questao}}" value="d" required="true" [ngModel]>  {{ item.d }}
+            </label> -->
