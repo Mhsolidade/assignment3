@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'PRIDI DIDATIC GOTHIC';
+  font-size: 2rem;
+
+  /* text-shadow: 4px 4px 4px #aaa; */
+}

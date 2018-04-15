@@ -21,6 +21,7 @@ background-size: cover;
 .texto{
   grid-column: 2/4;
   margin: 20px auto;
+  font-weight: bold;
 
 }
 
