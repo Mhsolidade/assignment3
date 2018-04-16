@@ -18,9 +18,14 @@ export class ResultadoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  
   this.nivel = this.gabaritoService.getResultado();
+
   console.log(this.nivel);
- 
+  if(this.nivel == 'Precisa estudar mais!' || this.nivel == undefined){
+    this.pontuacao = '0 a 2';
+    this.nivel = 'Precisa estudar mais!';
+  }
   if(this.nivel == 'Junior'){
     this.pontuacao = '3 a 5';
   }

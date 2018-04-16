@@ -66,7 +66,7 @@ export class GabaritoService {
 
   proficiencia() {
     if ( this.respostas <= 0) {
-      return 'Melhor mudar de área';
+      return this.resultado = 'Precisa estudar mais!';
     }
     if ( this.respostas >= 1 &&  this.respostas <= 7) {
       return this.resultado = 'Junior';
