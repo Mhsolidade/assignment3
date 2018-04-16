@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
@@ -31,7 +31,11 @@ export class PerguntasComponent implements OnInit {
 
   respostas: any = [];
   resp;
-  constructor(private perguntasSvc: PerguntasService, private gabaritoService: GabaritoService ) {   }
+  constructor(
+    private perguntasSvc: PerguntasService, 
+    private gabaritoService: GabaritoService,
+    private router: Router  
+  ) {   }
 
 
   ngOnInit() {
@@ -93,7 +97,7 @@ export class PerguntasComponent implements OnInit {
 enviaForm() {
   const respo = this.gabaritoService.proficiencia();
   this.gabaritoService.addItem(respo);
-  alert(`Parabens seu nivel é ${respo}`);
+  this.router.navigate(['/resultado']);
   // $('#myModal').modal('show');
   }
 }
