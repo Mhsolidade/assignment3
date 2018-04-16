@@ -85,5 +85,8 @@
           grid-column: 1/1;
           padding-top: 30px;
       }
-
+      .pontuacao{
+        color:#002b5f;
+        font-size: 7rem;
+    }
   }
