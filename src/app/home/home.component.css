@@ -39,12 +39,28 @@ background-size: cover;
   text-align: center;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 789px){
 .bg{
+  height: auto;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: auto;
 
-    grid-template-columns: 1fr;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 
+  }
+
+  .logo{
+    /* background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/Layout_Logo02.png?alt=media&token=d7b809f9-812f-4854-abf8-921e7d4fbd8c); */
+    grid-column: 1/3;
+    margin: 0 auto;
+    padding-top: 60px;
+    color: white;
+  }
+  .btn-home{
+    grid-column: 1/3;
+    grid-row: 3;
+    font-size: 20px;
+    text-align: center;
   }
 
 }
