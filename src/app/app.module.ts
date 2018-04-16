@@ -16,13 +16,14 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
 import { PerguntasModule } from './perguntas/perguntas.module';
-
+import { ResultadoModule } from './resultado/resultado.module';
 
 
 import { AuthGuard } from './guards/auth.guard';
 import { FirebaseService } from './service/firebase.service';
 import { GabaritoService } from './service/gabarito.service';
 import { PerguntasService } from './service/perguntas.service';
+
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDKbpyqpSkFgqgHfJF5J7vVuI8kWhYvevY',
@@ -42,6 +43,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     PerguntasModule,
+    ResultadoModule,
     // NgbModule.forRoot(),
     LoginModule,
     HomeModule,

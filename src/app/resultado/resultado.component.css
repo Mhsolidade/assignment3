@@ -1,0 +1,97 @@
+.bg-fundo{
+    background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/bg02.png?alt=media&token=1da68cbc-3634-4402-9ed3-d1c9e5f682b6);
+    z-index: -999999;
+    height: 100vh;
+  }
+
+  .bg-resultado{
+    background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/Layout_BG.png?alt=media&token=2cb3df9f-19e2-4c21-a392-1bd536805c82);
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    } 
+  
+    .img-resultado{
+        grid-column: 1/1;
+    }
+
+    .resultado{
+        grid-column: 2/2;
+        padding-top: 30px;
+    }
+
+    .pontuacao{
+        color:#0a6ae2;
+        font-size: 7rem;
+    }
+
+    .nivel{
+        color: #fff; 
+    }
+
+    span{
+        font-size: 5rem;
+    }
+  
+  .pergunta-img{
+    /* height: 300px; */
+    /* width: 50%; */
+    /* height: 100%;
+    background-repeat:no-repeat;
+    background-size: contain;
+    /* background-position: center; */
+  
+  
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  
+  }
+  
+  .btn-facebook {
+    color: #fff !important;
+    background-color: #3b5998;
+    border-color: rgba(0,0,0,0.2);
+}
+
+
+.btn-social {
+    position: relative;
+    padding-left: 44px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-social:hover {
+    color: #eee;
+}
+
+.btn-social :first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    padding: 7px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
+}
+  
+  
+  
+  @media screen and (max-width: 700px){
+    .grid-form{
+      display: flex;
+      grid-auto-rows: 70vh;
+      grid-template-columns: 1fr;
+      /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  
+    }
+  
+  }
+  
