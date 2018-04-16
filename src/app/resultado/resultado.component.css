@@ -10,9 +10,9 @@
     grid-template-columns: 2fr 2fr;
     background-repeat: no-repeat;
     background-size: cover;
-    
-    } 
-  
+
+    }
+
     .img-resultado{
         grid-column: 1/1;
     }
@@ -28,28 +28,14 @@
     }
 
     .nivel{
-        color: #fff; 
+        color: #fff;
     }
 
     span{
         font-size: 5rem;
     }
-  
-  .pergunta-img{
-    /* height: 300px; */
-    /* width: 50%; */
-    /* height: 100%;
-    background-repeat:no-repeat;
-    background-size: contain;
-    /* background-position: center; */
-  
-  
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  
-  }
-  
+
+
   .btn-facebook {
     color: #fff !important;
     background-color: #3b5998;
@@ -81,17 +67,23 @@
     text-align: center;
     border-right: 1px solid rgba(0,0,0,0.2);
 }
-  
-  
-  
-  @media screen and (max-width: 700px){
-    .grid-form{
-      display: flex;
-      grid-auto-rows: 70vh;
-      grid-template-columns: 1fr;
-      /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  
-    }
-  
+
+
+
+  @media screen and (max-width: 768px){
+    .bg-resultado{
+     display: grid;
+      grid-template-columns: 2fr;
+
+      }
+
+      .img-resultado{
+          grid-column: 1/1;
+      }
+
+      .resultado{
+          grid-column: 1/1;
+          padding-top: 30px;
+      }
+
   }
-  
