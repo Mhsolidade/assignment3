@@ -21,16 +21,20 @@ background-size: 200%;
 .texto{
   grid-column: 1/5;
   font-weight: bold;
-  color:white;
+  color:rgb(49, 49, 49);
   text-align: center;
   padding: 6rem;
 }
 
 .btn-primary {
-  color: #fcac56;
-  background-color: #fceb56;
+  color: #ff8400;
+  background-color: #f7e547;
   border-color: #fceb56;
-  font-size: 20px;
+  font-size: 1.5rem;
+  font-weight: 200;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
 }
 .btn-home{
   grid-column: 2/4;
@@ -44,11 +48,18 @@ background-size: 200%;
   height: auto;
     grid-template-columns:1fr 1fr;
     grid-template-rows: auto;
-
+    background-size: cover;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 
   }
+  .texto{
+    font-weight: normal;
+    color:white;
+    text-align: left;
 
+    font-size: 4rem;
+    padding: 2rem;
+  }
   .logo{
     /* background: url(https://firebasestorage.googleapis.com/v0/b/gama-assignment-3.appspot.com/o/Layout_Logo02.png?alt=media&token=d7b809f9-812f-4854-abf8-921e7d4fbd8c); */
     grid-column: 1/3;
@@ -62,5 +73,9 @@ background-size: 200%;
     font-size: 20px;
     text-align: center;
   }
+  .btn-primary {
+    margin-bottom: 2rem;
+  }
+
 
 }
