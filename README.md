@@ -1,27 +1,37 @@
-# MvpMatch
+# GAMA Assigment 3
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+> **Padrão:** Angular
 
-## Development server
+> **Framework:** Boostrap, Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> **Persistência:** Através do Firebase Database, seguindo a [documentação](https://github.com/angular/angularfire2).
 
-## Code scaffolding
+> **Instalação** npm install 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> **Desenvolvedores:** Jessica Lopes, Matheus Santos
 
-## Build
+>  **Método de Desenvolvimento:**  Optamos por desenvolver todo o projeto com  acompanhamento em tempo real, através de hangouts, para melhor troca de experiência.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+>  **Link da aplicação:** [mvp.designermatch.com.br](https://mvp.designermatch.com.br/).
+ 
+### Upload do projeto
 
-## Running unit tests
+**Requisitos:**   Ter um conta Firebase e Nodejs instaldo.
+No console do Firebase crie um novo projeto. https://console.firebase.google.com/u/1/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+##### Passos
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+instalar o Firebase tools
+>> npm install -g firebase-tools
 
-## Further help
+Efetuar o login no Firebase no terminal
+>> firebase login
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+No diretório do projeto. Iniciar as configurações do Firebase, para **hosting** e **FireDatabase**
+>>  firebase init
+
+Configure o arquivo database.rules.json, para permitir acesso de leitura e gravação no banco de dados.
+
+Por fim, realizar o deploy
+>> firebase deploy
