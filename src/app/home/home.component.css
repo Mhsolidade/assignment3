@@ -21,9 +21,12 @@ background-size: 200%;
 .texto{
   grid-column: 1/5;
   font-weight: bold;
-  color:rgb(49, 49, 49);
+  color: #ffffff;
   text-align: center;
-  padding: 6rem;
+  padding: 3rem;
+  font-weight: 900;
+  text-shadow: 1px 1px 4px #0000006e;
+  font-family: sans-serif;
 }
 
 .btn-primary {
@@ -43,7 +46,7 @@ background-size: 200%;
   text-align: center;
 }
 
-@media screen and (max-width: 789px){
+@media screen and (max-width: 569px){
 .bg{
   height: auto;
     grid-template-columns:1fr 1fr;
@@ -57,7 +60,7 @@ background-size: 200%;
     color:white;
     text-align: left;
 
-    font-size: 4rem;
+    font-size: 4em;
     padding: 2rem;
   }
   .logo{
